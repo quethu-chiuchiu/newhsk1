@@ -649,6 +649,22 @@
   .steps-card ol{margin:0; padding-left:20px;}
   .steps-card li{font-size:14.5px; line-height:1.7; margin-bottom:6px;}
   .steps-card li:last-child{margin-bottom:0;}
+  /* ================= 小语的彩蛋 · Bonus ================= */
+  .bonus-card{
+    display:flex; align-items:center; justify-content:space-between; gap:20px;
+    background:linear-gradient(120deg,var(--flame),#ff8a50); color:#fff;
+    border-radius:var(--radius-lg); padding:26px 30px; box-shadow:var(--shadow); margin-bottom:14px;
+  }
+  .bonus-hz{font-size:34px; font-weight:700;}
+  .bonus-en{font-size:15px; opacity:.9; margin-top:4px;}
+  .bonus-board{
+    background:#2c2f2c; border:8px solid #c99a5b; border-radius:6px; padding:14px 20px;
+    display:flex; flex-direction:column; align-items:center; gap:4px; transform:rotate(-2deg);
+  }
+  .bonus-board .hanzi{font-size:34px; color:#f3f3f3;}
+  .bonus-board .mono{font-size:15px; color:#d9d9d9;}
+  .bonus-video{width:100%; border-radius:var(--radius-md); background:#000; box-shadow:var(--shadow); display:block;}
+  @media (max-width:560px){ .bonus-card{flex-direction:column; align-items:flex-start;} }
 </style>
 </head>
 <body>
@@ -741,7 +757,7 @@
 
         <div class="sec">
           <div class="sec-head"><div class="num">1</div><h3>Nghe và đọc theo</h3></div>
-          <div class="audio-bar"><div class="ic">▶</div><div class="lbl">Nghe câu nói vòng</div><audio id="shadowAudio" controls src="audio/bai1-shadow.mp3"></audio></div>
+          <div class="audio-bar"><div class="ic">▶</div><div class="lbl">Nghe câu nói vòng</div><audio id="shadowAudio" controls src="audio/bai1-Shadow.mp3"></audio></div>
           <div class="speed-row" id="speedRow">
             <span class="lbl">Tốc độ:</span>
             <button class="speed-btn" data-rate="0.6">0.6×</button>
@@ -767,6 +783,23 @@
               <li>Thử đọc một mình không cần audio, càng lúc càng nhanh.</li>
             </ol>
           </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-badge"><span class="hanzi">小语助力</span><small>Mẹo của Tiểu Ngữ</small></div>
+          <div class="tip-body"><span class="hanzi">你还想学习更多的汉语拼音知识吗？那就去敲敲"小语的彩蛋"吧，惊喜等着你。</span><span class="vi">Bạn muốn học thêm về pinyin? Hãy "gõ cửa" mục "Quả trứng bất ngờ của Tiểu Ngữ" bên dưới nhé, có điều thú vị đang chờ bạn đấy!</span></div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-head"><div class="num">4</div><h3><span class="hanzi">小语的彩蛋</span> · Quả trứng bất ngờ</h3><div class="sub">Video 1-1</div></div>
+          <div class="bonus-card">
+            <div class="bonus-text">
+              <div class="bonus-hz hanzi">汉语拼音</div>
+              <div class="bonus-en">Pinyin · Phiên âm tiếng Hán</div>
+            </div>
+            <div class="bonus-board"><span class="hanzi">你好</span><span class="mono">nǐ hǎo</span></div>
+          </div>
+          <video class="bonus-video" controls preload="none" src="video/bai1-pinyin.mp4"></video>
         </div>
       </section>
 
@@ -1049,7 +1082,7 @@ document.querySelectorAll('.ctab').forEach(btn=>{
     document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
     document.getElementById('panel-'+btn.dataset.tab).classList.add('active');
     // Dừng mọi audio đang phát khi chuyển tab
-    document.querySelectorAll('audio').forEach(a=>a.pause());
+    document.querySelectorAll('audio, video').forEach(a=>a.pause());
   });
 });
 
